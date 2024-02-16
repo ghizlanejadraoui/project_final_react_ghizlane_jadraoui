@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import ImageBlog from "../../../assets/image/heading-pages-02.jpg";
+import ImageBlog from "../../../assets/image/carouse1_cap.png";
 import { MyContext } from '../../../utils/ContextProvider';
 import { useNavigate } from 'react-router-dom';
 import { MdShoppingCartCheckout } from "react-icons/md";
@@ -22,8 +22,8 @@ export const SectionShop = () => {
     return (
         <>
             <section>
-                <div className="relative h-[400px]" style={{ backgroundImage: `url(${ImageBlog})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
-                    <h1 className='absolute top-[40%] left-[40%]  text-white lg-text-7xl font-semibold'>SHOP NOW</h1>
+                <div className="relative h-[400px]" style={{ backgroundImage: `url(${ImageBlog})`, backgroundRepeat: "no-repeat", backgroundSize: "container", backgroundPosition: "center" }}>
+                    {/* <h1 className='absolute top-[40%] left-[40%]  text-white lg-text-7xl font-semibold'>SHOP NOW</h1> */}
                 </div>
                 <div className=" py-10">
                     <div className="container">

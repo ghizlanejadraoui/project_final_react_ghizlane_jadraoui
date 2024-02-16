@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { RiShoppingBagLine } from "react-icons/ri";
 import { ImUser } from "react-icons/im";
 import { Link } from 'react-router-dom';
+import logo from '../assets/image/logo.png';
 
 import {
   Card,
@@ -46,7 +47,9 @@ export const Header = () => {
       <nav className=" shadow-[rgba(0,0,10,0.2)_5px_5px_4px_0px] fixed w-full z-10 bg-white">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1 ">
           <div className="flex items-center space-x-3 rtl:space-x-reverse">
-            <span className="self-center text-4xl font-semibold whitespace-nowrap dark:text-white">Store</span>
+            <span className="self-center text-4xl font-semibold whitespace-nowrap dark:text-white">
+              <img src={logo} alt="" />
+            </span>
           </div>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button type="button" className="flex text-sm  rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
@@ -153,19 +156,19 @@ Prix Total : {((element)=>(element.aprice*element.quantity),0)}
           <div className=" items-center justify-between hidden w-full md:flex md:w-auto md:h-auto md:order-1" id="navbar-user">
             <ul className="flex flex-col  font-medium  mt-3  lg:flex-row items-center underline-none decoration-none">
               <li>
-                <Link className="block py-2 px-3 text-gray-900 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page" to={"/"}>Home</Link>
+                <Link className="block py-2 px-3 text-gray-900 bg-red-700 rounded md:bg-transparent md:text-red-700 md:p-0 md:dark:text-red-500 no-underline" aria-current="page" to={"/"}>Home</Link>
               </li>
               <li>
-                <Link to={"/shop"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Shop</Link>
+                <Link to={"/shop"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-700 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 no-underline">Shop</Link>
               </li>
               <li>
-                <Link to={"/blog"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Blog</Link>
+                <Link to={"/blog"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-700 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 no-underline">Blog</Link>
               </li>
               <div className='underline-none decoration-none'>
-                <Link to={"/about"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</Link>
+                <Link to={"/about"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-700 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 no-underline">About</Link>
               </div>
               <li>
-                <Link to={"/contact"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</Link>
+                <Link to={"/contact"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-700 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 no-underline">Contact</Link>
               </li>
             </ul>
           </div>
