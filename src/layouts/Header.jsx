@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { RiShoppingBagLine } from "react-icons/ri";
 import { ImUser } from "react-icons/im";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/image/logo.png';
+import './sectionheader.scss';
 
 import {
   Card,
@@ -21,6 +22,7 @@ import { useCart } from 'react-use-cart';
 
 
 export const Header = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(!open);
   const {
@@ -55,7 +57,10 @@ export const Header = () => {
             <button type="button" className="flex text-sm  rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
               <span className="sr-only">Open user menu</span>
               <div className='flex gap-4 text-2xl'>
+                <button onClick={() => { navigate(`/auth`) }}>
+
                 <ImUser />
+                </button>
                 <button onClick={handleOpen} variant="gradient" data-modal-target="default-modal" data-modal-toggle="default-modal" class="block" type="button">
                   <RiShoppingBagLine />
                 </button>
@@ -156,7 +161,7 @@ Prix Total : {((element)=>(element.aprice*element.quantity),0)}
           <div className=" items-center justify-between hidden w-full md:flex md:w-auto md:h-auto md:order-1" id="navbar-user">
             <ul className="flex flex-col  font-medium  mt-3  lg:flex-row items-center underline-none decoration-none">
               <li>
-                <Link className="block py-2 px-3 text-gray-900 bg-red-700 rounded md:bg-transparent md:text-red-700 md:p-0 md:dark:text-red-500 no-underline" aria-current="page" to={"/"}>Home</Link>
+                <Link className="block py-2 px-3 text-gray-900 bg-red-700 rounded md:bg-transparent md:text-red-700 md:p-0 md:dark:text-red-500 no-underlineTF4Z3A2" aria-current="page" to={"/"}>Home</Link>
               </li>
               <li>
                 <Link to={"/shop"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-700 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 no-underline">Shop</Link>

@@ -10,6 +10,7 @@ import { Shop } from './pages/Shop/Shop.jsx';
 import { MyProvider } from './utils/ContextProvider.jsx';
 import { Show } from './pages/ShowProducts/Show.jsx';
 import { CartProvider } from 'react-use-cart';
+import { Authentification } from './pages/Authentification/Authentification.jsx';
 
 
 
@@ -27,6 +28,7 @@ function App() {
                 <Route path='/about' element={<AboutUs/>} />
                 <Route path='/shop/:id' element={<Show/>} />
                 <Route path='/contact' element={<ContactUs />} />
+                <Route path='/auth' element={<Authentification/>} />
             </Routes>
             <Footer/>
             </CartProvider>

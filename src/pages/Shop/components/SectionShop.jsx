@@ -9,14 +9,24 @@ export const SectionShop = () => {
     const navigate = useNavigate()
     // *
     const [selectedCategorie, setSelectedCategorie] = useState(``)
-    const [newDataBase, setNewDataBase] = useState([])
+    const [newDataBase, setNewDataBase] = useState([...marketPlaceDataBase])
     const handlCategorie = (e) => {
-        const selectedCategory = e.target.value;
-
-        if (selectedCategory) {
+        if (e) {
+            const filteredData = marketPlaceDataBase.filter(element => element.gender == e);
+            setNewDataBase(filteredData);
+        }
+    }
+    const handlCategorie1 = (e) => {
+        if (e) {
+            const filteredData = marketPlaceDataBase.filter(element => element.gender == e);
+            setNewDataBase(filteredData);
+        }
+    }
+    const handlCategorie2 = (e) => {
+        if (e) {
             const filteredData = marketPlaceDataBase.filter(element => element.gender.includes(element.gender));
-            setMarketPlaceDataBase(filteredData);
-        } 
+            setNewDataBase(filteredData);
+        }
     }
 
     return (
@@ -39,7 +49,7 @@ export const SectionShop = () => {
                                             <li className="py-1 gap-2">
                                                 <div className="flex items-center gap-3">
                                                     <div className=" ">
-                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie(e) }}>
+                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie1(e) }}>
                                                             Best Seller (8 items)
                                                         </p>
                                                     </div>
@@ -48,7 +58,7 @@ export const SectionShop = () => {
                                             <li className=" ">
                                                 <div className="flex items-center gap-3">
                                                     <div className=" ">
-                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie(e) }}>
+                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie2(e) }}>
                                                             Featured (8 items)
                                                         </p>
                                                     </div>
@@ -57,18 +67,18 @@ export const SectionShop = () => {
                                             <li className="">
                                                 <div className="flex items-center gap-3">
                                                     <div className=" ">
-                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie(e) }}>
+                                                        <button className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" value={`men`} onClick={(e) => { handlCategorie(e.target.value) }}>
                                                             Men (8 items)
-                                                        </p>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li className=" ">
                                                 <div className="flex items-center  gap-3">
                                                     <div className=" ">
-                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie(e) }}>
+                                                        <button className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" value={`women`} onClick={(e) => { handlCategorie(e.target.value) }}>
                                                             Women (8 items)
-                                                        </p>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </li>
@@ -208,7 +218,7 @@ export const SectionShop = () => {
                                             <section>
                                                 {/*  */}
                                                 <div className=" flex  flex-wrap justify-between gap-4">{
-                                                    marketPlaceDataBase.map((element, index) =>
+                                                    newDataBase.map((element, index) =>
                                                         <div class="w-[250px] max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" onClick={() => { navigate(`/shop/${element.title}`) }} key={index} element={element}>
                                                             <div>
                                                                 <div className="w-full h-80" style={{ backgroundImage: `url(${element.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}></div>
@@ -239,6 +249,7 @@ export const SectionShop = () => {
                                                                 <div class="flex items-center justify-between">
                                                                     <span class="text-2xl font-bold text-gray-900 dark:text-white pb-3">${element.price}</span>
                                                                     <span class="text-sm  text-red-500 dark:text-white pb-3 line-through">${element.AncienPrice}</span>
+
                                                                     <div className='w-7 text-2xl'>
                                                                         {/* <FaShoppingCart />         */}
                                                                         <MdShoppingCartCheckout />
