@@ -67,7 +67,7 @@ export const Header = () => {
 
                 {/*  */}
                 {/* modal */}
-                <div>
+                <div className=''>
                   <Dialog className='overflow-y-scroll ' open={open} handler={handleOpen}>
                     <DialogHeader>Your Products </DialogHeader>
                     <DialogBody>

@@ -45,22 +45,13 @@ export const SectionShop = () => {
                                         <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">Categories</h5>
                                     </div>
                                     <div className="flow-root">
-                                        <ul role="list" className="px-0 ">
-                                            <li className="py-1 gap-2">
+                                        <ul className="flex flex-col justify-evenly px-0" role="list" >
+                                            <li className="">
                                                 <div className="flex items-center gap-3">
                                                     <div className=" ">
-                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie1(e) }}>
-                                                            Best Seller (8 items)
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li className=" ">
-                                                <div className="flex items-center gap-3">
-                                                    <div className=" ">
-                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie2(e) }}>
-                                                            Featured (8 items)
-                                                        </p>
+                                                        <button className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onClick={() => { navigate(`/shop`) }}  >
+                                                            all
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </li>
@@ -88,7 +79,7 @@ export const SectionShop = () => {
                                 {/* price */}
                                 <div className="w-full max-w-md p-4 bg-white   ">
                                     <div className="flex items-center justify-between mb-4">
-                                        <h5 className="text-2xl font-bold leading-none text-gray-900 dark:text-white">COLOR</h5>
+                                        <h5 className="text-2xl font-bold leading-none text-gray-900 dark:text-white">PRICE</h5>
                                     </div>
                                     <div className="flow-root">
                                         <ul role="list" className="px-0 ">

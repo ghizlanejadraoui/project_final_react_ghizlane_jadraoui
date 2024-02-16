@@ -61,7 +61,7 @@ export const FirstSectionHome = () => {
               NEW ARRIVALES
             </Typography>
             <div className="flex justify-center">
-              <Button className='rounded-3xl' size="lg" color="white">
+              <Button onClick={() => { navigate(`/`) }} className='rounded-3xl' size="lg" color="white">
                 SHOP NOW
               </Button>
             </div>
@@ -91,7 +91,7 @@ export const FirstSectionHome = () => {
               NEW ARRIVALES
             </Typography>
             <div className="flex justify-center ">
-              <Button className='rounded-3xl' size="lg" color="white">
+              <Button onClick={() => { navigate(`/`) }} className='rounded-3xl' size="lg" color="white">
                 SHOP NOW
               </Button>
             </div>
@@ -121,7 +121,7 @@ export const FirstSectionHome = () => {
               NEW ARRIVALES
             </Typography>
             <div className="flex justify-center ">
-              <Button className='rounded-3xl' size="lg" color="white">
+              <Button onClick={() => { navigate(`/`) }} className='rounded-3xl' size="lg" color="white">
                 SHOP NOW
               </Button>
             </div>

@@ -88,8 +88,8 @@ export const SectionShow = () => {
                       {/* <option value="">{element.qte}</option> */}
                       <div className="flex gap-2 text-white items-center" key={index}>
                       <button  className='bg-yellow-300 w-[30px] h-[30px]'>-</button>
-          <button  className='bg-green-500 w-[30px] h-[30px]'>+</button>
           <button  className='text-black'>{element.quantity} </button>
+          <button  className='bg-green-500 w-[30px] h-[30px]'>+</button>
         </div>
 
                     </p>
