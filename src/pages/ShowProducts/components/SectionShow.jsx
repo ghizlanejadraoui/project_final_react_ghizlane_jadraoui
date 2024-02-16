@@ -15,6 +15,7 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 import { MyContext } from '../../../utils/ContextProvider';
+import { useCart } from 'react-use-cart';
 
 export const SectionShow = () => {
     const navigate = useNavigate()
@@ -25,9 +26,8 @@ export const SectionShow = () => {
     console.log(newData);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(!open);
-    const {addItem}= useState();
-
-  
+    // const {addItem}= useState();
+    const { addItem } = useCart();
     return (
         <>
         <section className='p-20'>
@@ -84,14 +84,15 @@ export const SectionShow = () => {
                   </Typography>
                   <Typography color="gray" className="mb-8 font-normal">
                     <label htmlFor="">Qté :</label>
-                    <select className='border-none decoration-none input:border-red-100 ' name="Number" id="">
-                      <option value="">1</option>
-                      <option value="">2</option>
-                      <option value="">3</option>
-                      <option value="">4</option>
-                      <option value="">5</option>
-                      <option value="">6</option>
-                    </select>
+                    <p className='border-none decoration-none input:border-red-100 ' name="Number" id="">
+                      {/* <option value="">{element.qte}</option> */}
+                      <div className="flex gap-2 text-white items-center" key={index}>
+                      <button  className='bg-yellow-300 w-[30px] h-[30px]'>-</button>
+          <button  className='bg-green-500 w-[30px] h-[30px]'>+</button>
+          <button  className='text-black'>{element.quantity} </button>
+        </div>
+
+                    </p>
                   </Typography>
                   <div className='flex pb-4 justify-between w-[50%] '>
                     <div className=" w-[90px] h-[90px] ">                  
@@ -115,8 +116,8 @@ export const SectionShow = () => {
                   /></div>
 
                   </div>
-                  <div className="inline-block">
-                    <Button onClick={()=> addItem(marketPlaceDataBase.element)} variant="gradient">
+                  <div className="inline-block" key={element.id}>
+                    <Button onClick={()=> addItem(element)} variant="gradient" key={element.id}>
                       Add To Card
                     </Button>
                   </div>

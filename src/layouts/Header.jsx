@@ -16,21 +16,31 @@ import {
   DialogBody,
   DialogFooter,
 } from "@material-tailwind/react";
+import { useCart } from 'react-use-cart';
 
 
 export const Header = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(!open);
-  const { 
+  const {
     isEmpty,
     totalUniqueItems,
-    items,
     totalItems,
-    cartTotal,
+    totalPrice,
+    items,
     updateItemQuantity,
     removeItem,
-    emptyCart, } = useState();
-    if(isEmpty) return <h1 className='text-center'>Your cart is Empty</h1>
+  } = useCart();
+  const icon = {
+    hidden: {
+      pathLength: 0,
+      fill: "rgba(255, 255, 255, 0)"
+    },
+    visible: {
+      pathLength: 1,
+      fill: "rgba(255, 255, 255, 1)"
+    }
+  }
   return (
     <>
       <nav className=" shadow-[rgba(0,0,10,0.2)_5px_5px_4px_0px] fixed w-full z-10 bg-white">
@@ -50,31 +60,48 @@ export const Header = () => {
                 {/*  */}
                 {/* modal */}
                 <div>
-                  <Dialog open={open} handler={handleOpen}>
-                    <DialogHeader>Its a simple dialog.</DialogHeader>
+                  <Dialog className='overflow-y-scroll ' open={open} handler={handleOpen}>
+                    <DialogHeader>Your Products </DialogHeader>
                     <DialogBody>
-                      {/* <form action="" className='flex flex-col justify-evenly'>
-                        <label htmlFor="">Name :</label>
-                        <input className='rounded' type="text" />
-                        <label htmlFor="">Email :</label>
-                        <input className='rounded' type="text" />
-                        <label htmlFor="">Adresse :</label>
-                        <input className='rounded' type="text" />
-                        <label htmlFor="">Number Phone :</label>
-                        <input className='rounded' type="text" />
-                      </form> */}
-                      {/* <div>{items.map((element,index)=>{
-                        return(
-                        <div key={index} className="">
-                          <img src={element.image} alt="" />
-                          <p>{element.tille}</p>
-                          <p>{element.price}</p>
-                        </div>
-                        )
-                      }
-                      )}
+                      <h1 className='text-sm'>Product ({totalUniqueItems}) Quantity:({totalItems}) </h1>
+<ul>
+  {items.map((element) => {
+    return(
+<section className='py-2 container'>
+  <div className="row justify-evenly">
+    <div className="col-12">
+      {/* <h5>Cart ({totalUniqueItems}) Total : ({totalItems})</h5> */}
+      <div className='border h-[200px]  ' key={element.id}>
+        <div className="flex    p-3 w-[100%]">
+        <div className="  ">
+           <img src={element.image} className='w-[50%] h-full' alt="" />
+        </div >
+        <div className=" flex flex-col justify-evenly w-[100%]">
+             <p>{element.title}</p>
+       <p>$ {element.price}</p>
+       <p> Quantity : {element.quantity}</p>
+        <div className="flex gap-2 text-white items-center">
+          <button onClick={() => updateItemQuantity(element.id, element.quantity - 1 )} className='bg-yellow-300 w-[30px] h-[30px]'>-</button>
+          <button onClick={() => updateItemQuantity(element.id, element.quantity + 1)} className='bg-green-500 w-[30px] h-[30px]'>+</button>
+          <button onClick={() => removeItem(element.id)} className='bg-red-600 px-3 h-[4.6vh]'>Remove</button>
+        </div>
+        </div>
 
-                      </div> */}
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+{/* <div className="">
+Prix Total : {((element)=>(element.aprice*element.quantity),0)}
+</div> */}
+</section>
+    
+    );
+  })}
+</ul>
+
                     </DialogBody>
                     <DialogFooter>
                       <Button

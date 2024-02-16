@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import ImageBlog from "../../../assets/image/heading-pages-02.jpg";
 import { MyContext } from '../../../utils/ContextProvider';
 import { useNavigate } from 'react-router-dom';
@@ -7,11 +7,23 @@ import { MdShoppingCartCheckout } from "react-icons/md";
 export const SectionShop = () => {
     const [marketPlaceDataBase, setMarketPlaceDataBase] = useContext(MyContext)
     const navigate = useNavigate()
+    // *
+    const [selectedCategorie, setSelectedCategorie] = useState(``)
+    const [newDataBase, setNewDataBase] = useState([])
+    const handlCategorie = (e) => {
+        const selectedCategory = e.target.value;
+
+        if (selectedCategory) {
+            const filteredData = marketPlaceDataBase.filter(element => element.gender.includes(element.gender));
+            setMarketPlaceDataBase(filteredData);
+        } 
+    }
+
     return (
         <>
             <section>
                 <div className="relative h-[400px]" style={{ backgroundImage: `url(${ImageBlog})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
-                    <h1 className='absolute top-[40%] left-[40%]  text-white lg-text-7xl font-semibold'>CONTACT</h1>
+                    <h1 className='absolute top-[40%] left-[40%]  text-white lg-text-7xl font-semibold'>SHOP NOW</h1>
                 </div>
                 <div className=" py-10">
                     <div className="container">
@@ -27,7 +39,7 @@ export const SectionShop = () => {
                                             <li className="py-1 gap-2">
                                                 <div className="flex items-center gap-3">
                                                     <div className=" ">
-                                                        <p className="text-sm font-medium text-gray-900  dark:text-white">
+                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie(e) }}>
                                                             Best Seller (8 items)
                                                         </p>
                                                     </div>
@@ -36,7 +48,7 @@ export const SectionShop = () => {
                                             <li className=" ">
                                                 <div className="flex items-center gap-3">
                                                     <div className=" ">
-                                                        <p className="text-sm font-medium text-gray-900  dark:text-white">
+                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie(e) }}>
                                                             Featured (8 items)
                                                         </p>
                                                     </div>
@@ -45,7 +57,7 @@ export const SectionShop = () => {
                                             <li className="">
                                                 <div className="flex items-center gap-3">
                                                     <div className=" ">
-                                                        <p className="text-sm font-medium text-gray-900  dark:text-white">
+                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie(e) }}>
                                                             Men (8 items)
                                                         </p>
                                                     </div>
@@ -54,7 +66,7 @@ export const SectionShop = () => {
                                             <li className=" ">
                                                 <div className="flex items-center  gap-3">
                                                     <div className=" ">
-                                                        <p className="text-sm font-medium text-gray-900  dark:text-white">
+                                                        <p className="text-sm font-medium text-gray-900  dark:text-white cursor-pointer" onChange={(e) => { handlCategorie(e) }}>
                                                             Women (8 items)
                                                         </p>
                                                     </div>

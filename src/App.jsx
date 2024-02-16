@@ -9,12 +9,15 @@ import { Blog } from './pages/Blog/Blog.jsx';
 import { Shop } from './pages/Shop/Shop.jsx';
 import { MyProvider } from './utils/ContextProvider.jsx';
 import { Show } from './pages/ShowProducts/Show.jsx';
+import { CartProvider } from 'react-use-cart';
+
 
 
 function App() {
     return (
         <>  
         <MyProvider>
+            <CartProvider>
         <Header/>
             <Routes>
                 <Route path='*' element={<Error/>} />
@@ -26,6 +29,7 @@ function App() {
                 <Route path='/contact' element={<ContactUs />} />
             </Routes>
             <Footer/>
+            </CartProvider>
         </MyProvider>
         </>
     );
